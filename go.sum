@@ -1,0 +1,4 @@
+github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
+github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
+github.com/mertdogan12/osd v0.0.0-20220424231213-fa41a88fc8f6 h1:sTZb52p71pMeTfPiN5WHrMECOl19c8+faP/1NObZvag=
+github.com/mertdogan12/osd v0.0.0-20220424231213-fa41a88fc8f6/go.mod h1:KkEg6FHid8UlzBNy0hSLCLEERi1pJak+qzZfxs8+ox4=
