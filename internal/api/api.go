@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -22,16 +23,18 @@ func checkPermission(r *http.Request, permission string) (bool, error) {
 		return false, errors.New("No token is given")
 	}
 
-	_, err := ReqAuthGET(token[1], os.Getenv("BACK_URL")+"users/me", UserObj{})
+	obj, err := ReqAuthGET[UserObj](token[1], os.Getenv("BACK_URL")+"users/me")
 	if err != nil {
 		// TODO error handling
 		panic(err)
 	}
 
+    fmt.Println(obj.Permissions)
+
 	return true, nil
 }
 
-func ReqAuthGET(token string, uri string, obj interface{}) (interface{}, error) {
+func ReqAuthGET[T any](token string, uri string) (*T, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", uri, nil)
 	if err != nil {
@@ -44,7 +47,7 @@ func ReqAuthGET(token string, uri string, obj interface{}) (interface{}, error) 
 		return nil, err
 	}
 
-	var out obj
+	var out T
 
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)
@@ -60,5 +63,5 @@ func ReqAuthGET(token string, uri string, obj interface{}) (interface{}, error) 
 		return nil, err
 	}
 
-	return out, nil
+	return &out, nil
 }

@@ -12,8 +12,8 @@ func main() {
 	// .env
 	godotenv.Load()
 
-	http.HandleFunc("/users/me", api.SaveReplay)
+	http.HandleFunc("/replay/save", api.SaveReplay)
 
-	fmt.Println("Server started on port:", 3000)
-	http.ListenAndServe(":3000", nil)
+	fmt.Println("Server started on port:", 8080)
+	http.ListenAndServe(":8080", nil)
 }
