@@ -3,12 +3,12 @@ package api
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"strings"
 
+	"github.com/mertdogan12/osd-perm/pkg/helper"
 	osd "github.com/mertdogan12/osd/pkg/user"
 )
 
@@ -25,13 +25,23 @@ func checkPermission(r *http.Request, permission string) (bool, error) {
 
 	obj, err := ReqAuthGET[UserObj](token[1], os.Getenv("BACK_URL")+"users/me")
 	if err != nil {
-		// TODO error handling
-		panic(err)
+		return false, err
 	}
 
-    fmt.Println(obj.Permissions)
+    if helper.StringArrayConatins(obj.Permissions, "*") {
+        return true, nil
+    }
+    
+    groupPerm := strings.Split(permission, ".")[0]
+    if helper.StringArrayConatins(obj.Permissions, groupPerm + ".*") {
+        return true, nil
+    }
 
-	return true, nil
+    if helper.StringArrayConatins(obj.Permissions, permission) {
+        return true, nil
+    }
+
+	return false, nil
 }
 
 func ReqAuthGET[T any](token string, uri string) (*T, error) {
