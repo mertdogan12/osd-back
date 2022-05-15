@@ -17,31 +17,33 @@ type UserObj struct {
 	Permissions []string `json:"permissions"`
 }
 
-func checkPermission(r *http.Request, permission string) (bool, error) {
+// Return Id = user has permission
+// Return nil = user has not the permission
+func checkPermission(r *http.Request, permission string) (*int, error) {
 	token := strings.Split(r.Header.Get("Authorization"), " ")
 	if token[0] != "Bearer" {
-		return false, errors.New("No token is given")
+		return nil, errors.New("No token is given")
 	}
 
 	obj, err := ReqAuthGET[UserObj](token[1], os.Getenv("BACK_URL")+"users/me")
 	if err != nil {
-		return false, err
+		return nil, err
 	}
 
     if helper.StringArrayConatins(obj.Permissions, "*") {
-        return true, nil
+        return &obj.Id, nil
     }
     
     groupPerm := strings.Split(permission, ".")[0]
     if helper.StringArrayConatins(obj.Permissions, groupPerm + ".*") {
-        return true, nil
+        return &obj.Id, nil
     }
 
     if helper.StringArrayConatins(obj.Permissions, permission) {
-        return true, nil
+        return &obj.Id, nil
     }
 
-	return false, nil
+	return nil, nil
 }
 
 func ReqAuthGET[T any](token string, uri string) (*T, error) {
