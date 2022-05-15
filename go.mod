@@ -13,7 +13,7 @@ require (
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
-	github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89 // indirect
+	github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/ulikunitz/xz v0.5.10 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect

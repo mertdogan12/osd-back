@@ -10,7 +10,7 @@ import (
 
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	"github.com/mertdogan12/osd/pkg/user"
-	parser "github.com/mertdogan12/osu-replay-converter/pkg/osu-replay-parser"
+	parser "github.com/mertdogan12/osu-replay-parser"
 )
 
 func SaveReplay(w http.ResponseWriter, r *http.Request) {
@@ -57,6 +57,8 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	parsedObj, err := parser.Parse(body)
+
 	// Saves the replay
 	folder := filepath.Join(".", os.Getenv("BACK_SAVEDIR"), strconv.Itoa(*id), "Mert Dogan")
 	err = os.MkdirAll(folder, os.ModePerm)
@@ -68,8 +70,6 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 		helper.ApiRespondErr(err, w)
 		return
 	}
-
-	parsedObj, err := parser.ConvertToObject(replaypath)
 
 	helper.ApiRespond(http.StatusOK, "Replay from "+parsedObj.PlayerName+" saved.", w)
 }

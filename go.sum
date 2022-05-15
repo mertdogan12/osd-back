@@ -22,6 +22,8 @@ github.com/mertdogan12/osd-perm v0.0.2-0.20220512185428-f321f588d5b3 h1:CGc2WpJr
 github.com/mertdogan12/osd-perm v0.0.2-0.20220512185428-f321f588d5b3/go.mod h1:Qr5Rbz9uWpEKAVJZJSVq/oRdmrJXSAvt9UwcxJJjurk=
 github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89 h1:7LB5ZBuJhDHaKTecwfrLCETM+yPAqrP6Wup1de30Mkw=
 github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89/go.mod h1:k63hb/kW8FziIGhUjGYSQ/83iQz3XEl2E0amu7Ydaoc=
+github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f h1:YclqPP/3UadPxTuDepc5xH51Amuw5ZCTq46UK4bWKZc=
+github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f/go.mod h1:ScRvw9bhAH0Hyk/NHWCv5sAh9FFivp78ImPrqztSEQ8=
 github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
