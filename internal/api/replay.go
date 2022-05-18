@@ -1,7 +1,6 @@
 package api
 
 import (
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -60,7 +59,7 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(body) == 0 {
-		helper.ApiRespondErr(errors.New("Replay file is not given"), w)
+		helper.ApiRespond(http.StatusBadGateway, "Replay file is not given", w)
 		return
 	}
 
