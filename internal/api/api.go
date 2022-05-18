@@ -8,6 +8,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/mertdogan12/osd-back/internal/conf"
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	osd "github.com/mertdogan12/osd/pkg/user"
 )
@@ -25,7 +26,7 @@ func checkPermission(r *http.Request, permission string) (*int, error) {
 		return nil, errors.New("No token is given")
 	}
 
-	obj, err := ReqAuthGET[UserObj](token[1], os.Getenv("BACK_URL")+"users/me")
+	obj, err := ReqAuthGET[UserObj](token[1], conf.URL+"users/me")
 	if err != nil {
 		return nil, err
 	}

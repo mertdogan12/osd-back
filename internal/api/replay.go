@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strconv"
 
+	"github.com/mertdogan12/osd-back/internal/conf"
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	"github.com/mertdogan12/osd/pkg/user"
 	parser "github.com/mertdogan12/osu-replay-parser"
@@ -60,11 +61,11 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	parsedObj, err := parser.Parse(body)
 
 	// Saves the replay
-	folder := filepath.Join(".", os.Getenv("BACK_SAVEDIR"), strconv.Itoa(*id), "Mert Dogan")
+	folder := filepath.Join(".", conf.SaveDir, strconv.Itoa(*id), "Mert Dogan")
 	err = os.MkdirAll(folder, os.ModePerm)
 
 	// TODO save replay in <usernameID>/<player from replay>/<scoreid>;<beatmap id>;Replay online id (if exists).osr
-	replaypath := fmt.Sprintf("%s/%d/%s/%s;%s;%s.osr", os.Getenv("BACK_SAVEDIR"), *id, "Mert Dogan", scoreID, beatmapID, "-1")
+	replaypath := fmt.Sprintf("%s/%d/%s/%s;%s;%s.osr", conf.SaveDir, *id, "Mert Dogan", scoreID, beatmapID, "-1")
 	err = os.WriteFile(replaypath, body, 0644)
 	if err != nil {
 		helper.ApiRespondErr(err, w)
