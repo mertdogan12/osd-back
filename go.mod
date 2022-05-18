@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/joho/godotenv v1.4.0
 	github.com/mertdogan12/osd v0.0.0-20220508141208-fe17bbce06fb
-	github.com/mertdogan12/osd-perm v0.0.2-0.20220512185428-f321f588d5b3
+	github.com/mertdogan12/osd-perm v0.0.3-0.20220518170303-630ca4d6319f
 )
 
 require (

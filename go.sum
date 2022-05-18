@@ -20,6 +20,8 @@ github.com/mertdogan12/osd-perm v0.0.1 h1:KJT76GNhebvSVKNNCjgOeFlFCnDnmkAxdxV/D9
 github.com/mertdogan12/osd-perm v0.0.1/go.mod h1:qEZmoXkJFOY7Ec2Bwo1sl0zQQpSFPcvsB0LLIGWVrm0=
 github.com/mertdogan12/osd-perm v0.0.2-0.20220512185428-f321f588d5b3 h1:CGc2WpJrr9dn6SVK0UoadqAHRzQFxc02ErkWj9OojE4=
 github.com/mertdogan12/osd-perm v0.0.2-0.20220512185428-f321f588d5b3/go.mod h1:Qr5Rbz9uWpEKAVJZJSVq/oRdmrJXSAvt9UwcxJJjurk=
+github.com/mertdogan12/osd-perm v0.0.3-0.20220518170303-630ca4d6319f h1:MW2KG/pruP8mUPXbXcesmXNa4vKMHSZEA1r2eonZCZE=
+github.com/mertdogan12/osd-perm v0.0.3-0.20220518170303-630ca4d6319f/go.mod h1:Qr5Rbz9uWpEKAVJZJSVq/oRdmrJXSAvt9UwcxJJjurk=
 github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89 h1:7LB5ZBuJhDHaKTecwfrLCETM+yPAqrP6Wup1de30Mkw=
 github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89/go.mod h1:k63hb/kW8FziIGhUjGYSQ/83iQz3XEl2E0amu7Ydaoc=
 github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f h1:YclqPP/3UadPxTuDepc5xH51Amuw5ZCTq46UK4bWKZc=
