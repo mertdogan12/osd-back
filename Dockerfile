@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y ca-certificates --no-install-recommends
 
 RUN echo "machine github.com login $github_username password $github_token" | cat > /root/.netrc
 
-WORKDIR /go/src/github.com/mertdogan12/osd-perm
+WORKDIR /go/src/github.com/mertdogan12/osd-back
 
 ENV GOPRIVATE=github.com/mertdogan12/*
 ENV GOPATH=/go
@@ -23,8 +23,8 @@ FROM ubuntu:latest
 WORKDIR /app
 
 COPY --from=build-deps /etc/ssl/certs/ /etc/ssl/certs/
-COPY --from=build-deps /go/src/github.com/mertdogan12/osd-perm/osd-perm ./
+COPY --from=build-deps /go/src/github.com/mertdogan12/osd-back/osd-back ./
 
 EXPOSE 80
 
-CMD ["/app/osd-perm"]
+CMD ["/app/osd-back"]
