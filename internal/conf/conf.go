@@ -21,7 +21,7 @@ func Parse(args []string) {
 	}
 
 	// Arguments
-	for i, arg := range args {
+	for i, arg := range args[1:] {
 		switch arg {
 		case "-u":
 			URL = args[i+1]
