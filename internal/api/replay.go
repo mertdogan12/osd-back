@@ -1,6 +1,7 @@
 package api
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -55,6 +56,11 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		helper.ApiRespondErr(err, w)
+		return
+	}
+
+	if len(body) == 0 {
+		helper.ApiRespondErr(errors.New("Replay file is not given"), w)
 		return
 	}
 
