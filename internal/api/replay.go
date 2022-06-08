@@ -1,14 +1,9 @@
 package api
 
 import (
-	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
-	"path/filepath"
-	"strconv"
 
-	"github.com/mertdogan12/osd-back/internal/conf"
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	"github.com/mertdogan12/osd/pkg/user"
 	parser "github.com/mertdogan12/osu-replay-parser"
@@ -33,24 +28,6 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Verifys the replay
-	scoreID := r.URL.Query()["scoreID"][0]
-	beatmapID := r.URL.Query()["beatmapID"][0]
-
-	_, err = strconv.Atoi(scoreID)
-	if err != nil {
-		helper.ApiRespond(http.StatusInternalServerError, "Can't convert the scoreID to an int: "+scoreID, w)
-		return
-	}
-
-	_, err = strconv.Atoi(beatmapID)
-	if err != nil {
-		helper.ApiRespond(http.StatusInternalServerError, "Can't convert the beatmapID to an int: "+beatmapID, w)
-		return
-	}
-
-	// TODO verify the replay
-
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
@@ -66,16 +43,6 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	parsedObj, err := parser.Parse(body)
 
 	// Saves the replay
-	folder := filepath.Join(".", conf.SaveDir, strconv.Itoa(*id), "Mert Dogan")
-	err = os.MkdirAll(folder, os.ModePerm)
-
-	// TODO save replay in <usernameID>/<player from replay>/<scoreid>;<beatmap id>;Replay online id (if exists).osr
-	replaypath := fmt.Sprintf("%s/%d/%s/%s;%s;%s.osr", conf.SaveDir, *id, "Mert Dogan", scoreID, beatmapID, "-1")
-	err = os.WriteFile(replaypath, body, 0644)
-	if err != nil {
-		helper.ApiRespondErr(err, w)
-		return
-	}
 
 	helper.ApiRespond(http.StatusOK, "Replay from "+parsedObj.PlayerName+" saved.", w)
 }
