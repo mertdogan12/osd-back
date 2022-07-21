@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -25,23 +26,25 @@ func checkPermission(r *http.Request, permission string) (*int, error) {
 		return nil, errors.New("No token is given")
 	}
 
+	fmt.Println(token[1])
+
 	obj, err := ReqAuthGET[UserObj](token[1], conf.URL+"users/me")
 	if err != nil {
 		return nil, err
 	}
 
-    if helper.StringArrayConatins(obj.Permissions, "*") {
-        return &obj.Id, nil
-    }
-    
-    groupPerm := strings.Split(permission, ".")[0]
-    if helper.StringArrayConatins(obj.Permissions, groupPerm + ".*") {
-        return &obj.Id, nil
-    }
+	if helper.StringArrayConatins(obj.Permissions, "*") {
+		return &obj.Id, nil
+	}
 
-    if helper.StringArrayConatins(obj.Permissions, permission) {
-        return &obj.Id, nil
-    }
+	groupPerm := strings.Split(permission, ".")[0]
+	if helper.StringArrayConatins(obj.Permissions, groupPerm+".*") {
+		return &obj.Id, nil
+	}
+
+	if helper.StringArrayConatins(obj.Permissions, permission) {
+		return &obj.Id, nil
+	}
 
 	return nil, nil
 }

@@ -4,6 +4,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/google/uuid"
+	"github.com/mertdogan12/osd-back/internal/mongo"
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	"github.com/mertdogan12/osd/pkg/user"
 	parser "github.com/mertdogan12/osu-replay-parser"
@@ -41,8 +43,10 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	}
 
 	parsedObj, err := parser.Parse(body)
+	replaysId := uuid.New()
 
 	// Saves the replay
+	mongo.SaveReplay(*id, 0, replaysId)
 
 	helper.ApiRespond(http.StatusOK, "Replay from "+parsedObj.PlayerName+" saved.", w)
 }

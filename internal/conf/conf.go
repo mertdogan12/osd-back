@@ -37,6 +37,7 @@ func Parse(args []string) {
 				log.Fatal("Port muss be an number. Given port:", args[i+1])
 			}
 			Port = port
+			break
 
 		case "--help":
 			fmt.Println(
@@ -46,6 +47,7 @@ func Parse(args []string) {
 					"     -p     sets the port\n" +
 					"     --help Shows the help menu")
 			os.Exit(0)
+			break
 
 		default:
 			log.Fatalf("Argument %s does not exists. --help to the all commands", arg)
