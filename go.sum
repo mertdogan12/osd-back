@@ -16,6 +16,8 @@ github.com/klauspost/compress v1.13.6/go.mod h1:/3/Vjq9QcHkK5uEr5lBEmyoZ1iFhe47e
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
+github.com/mertdogan12/leb128 v0.3.1-0.20220606220427-becd34537f3d h1:JxYYFQGNM54IsXcH+e3d8crUOtfTL4UPWVobLdLRws0=
+github.com/mertdogan12/leb128 v0.3.1-0.20220606220427-becd34537f3d/go.mod h1:TxbHj2sHb2Gw95W1xMWKqKIH4ZkX1ClUvYLzOwrwXOo=
 github.com/mertdogan12/osd v0.0.0-20220423145251-64b9e520e382/go.mod h1:KkEg6FHid8UlzBNy0hSLCLEERi1pJak+qzZfxs8+ox4=
 github.com/mertdogan12/osd v0.0.0-20220424231213-fa41a88fc8f6/go.mod h1:KkEg6FHid8UlzBNy0hSLCLEERi1pJak+qzZfxs8+ox4=
 github.com/mertdogan12/osd v0.0.0-20220508141208-fe17bbce06fb h1:1elbjDyyG4W3h1duzFA8xT4eHKX6V5w8Q2URNPeU/I0=
@@ -34,6 +36,8 @@ github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89 h
 github.com/mertdogan12/osu-replay-converter v0.0.0-20220514191919-a4549b47cd89/go.mod h1:k63hb/kW8FziIGhUjGYSQ/83iQz3XEl2E0amu7Ydaoc=
 github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f h1:YclqPP/3UadPxTuDepc5xH51Amuw5ZCTq46UK4bWKZc=
 github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f/go.mod h1:ScRvw9bhAH0Hyk/NHWCv5sAh9FFivp78ImPrqztSEQ8=
+github.com/mertdogan12/osu-replay-parser v1.0.2 h1:GffczmstNW0UpiFPa+3GR7gUkpRFlqfdEt2PD7hyN7c=
+github.com/mertdogan12/osu-replay-parser v1.0.2/go.mod h1:REpcx/jaa6H/QnNEHIQ0/b6n2ytsb0utfsAMJJp6QSM=
 github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

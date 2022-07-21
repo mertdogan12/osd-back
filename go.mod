@@ -13,8 +13,9 @@ require (
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
+	github.com/mertdogan12/leb128 v0.3.1-0.20220606220427-becd34537f3d // indirect
 	github.com/mertdogan12/osd-perm v0.0.3-0.20220524203658-3af76de8095a // indirect
-	github.com/mertdogan12/osu-replay-parser v0.0.0-20220515214201-52b730e2059f // indirect
+	github.com/mertdogan12/osu-replay-parser v1.0.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/ulikunitz/xz v0.5.10 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
