@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -43,10 +44,26 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 	}
 
 	parsedObj, err := parser.Parse(body)
+	// TODO get id form parsedObj.PlayerName
 	replaysId := uuid.New()
 
 	// Saves the replay
-	mongo.SaveReplay(*id, 0, replaysId)
+	uploaderRes, playerRes, err := mongo.SaveReplay(*id, *id, replaysId)
+	if err != nil {
+		helper.ApiRespondErr(err, w)
+		return
+	}
+
+	// Checks if the data actually got modified
+	if uploaderRes.ModifiedCount == 0 {
+		helper.ApiRespond(http.StatusBadGateway, fmt.Sprintf("Could not find user with the id: %d", *id), w)
+		return
+	}
+
+	if playerRes.ModifiedCount == 0 {
+		helper.ApiRespond(http.StatusBadGateway, fmt.Sprintf("Could not find user with the id: %d", *id), w)
+		return
+	}
 
 	helper.ApiRespond(http.StatusOK, "Replay from "+parsedObj.PlayerName+" saved.", w)
 }

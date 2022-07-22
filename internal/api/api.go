@@ -3,7 +3,6 @@ package api
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -25,8 +24,6 @@ func checkPermission(r *http.Request, permission string) (*int, error) {
 	if token[0] != "Bearer" {
 		return nil, errors.New("No token is given")
 	}
-
-	fmt.Println(token[1])
 
 	obj, err := ReqAuthGET[UserObj](token[1], conf.URL+"users/me")
 	if err != nil {
