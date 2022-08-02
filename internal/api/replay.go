@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/google/uuid"
 	"github.com/mertdogan12/osd-back/internal/mongo"
 	"github.com/mertdogan12/osd-perm/pkg/helper"
 	"github.com/mertdogan12/osd/pkg/user"
@@ -45,10 +44,9 @@ func SaveReplay(w http.ResponseWriter, r *http.Request) {
 
 	parsedObj, err := parser.Parse(body)
 	// TODO get id form parsedObj.PlayerName
-	replaysId := uuid.New()
 
 	// Saves the replay
-	uploaderRes, playerRes, err := mongo.SaveReplay(*id, *id, replaysId)
+	uploaderRes, playerRes, err := mongo.SaveReplay(*id, *id, parsedObj.BeatmapHash)
 	if err != nil {
 		helper.ApiRespondErr(err, w)
 		return
